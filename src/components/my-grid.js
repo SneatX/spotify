@@ -1,9 +1,10 @@
 import { LitElement, html, css } from "lit";
+import { newMusic } from "./my-newMusic";
 
-class myGrid extends LitElement {
+export class myGrid extends LitElement {
 
     static styles = css`
-    
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
     .main{
         height: 100vh;
         width: 100vw;
@@ -13,7 +14,7 @@ class myGrid extends LitElement {
     }
 
     .main__aside{
-        background: #2B2D42;
+        background: #FAFAFA;
         padding: 10px;
         display: grid;
         grid-template-rows: 130px 1fr 130px
@@ -29,16 +30,29 @@ class myGrid extends LitElement {
     }
 
     .main__section1{
-        background: #EC9A29;
+        background: #FFFFFF;
+        padding: 1vw;  
     }
+
+    .section1__title{
+        font-size: 3vw;
+        text-wrap: wrap;
+        font-family: "Poppins", sans-serif;
+        font-weight: 900;
+        font-style: normal;
+        margin: .5vw 0 1.5vw;
+        color: #333333;
+    }
+    .section1__title >*{
+        margin: 0;
+    }
+
     .main__section2{
-        background: #EF233C;
+        background: #FAFAFA;
     }
-    .main__section2{
-        background: #35A7FF;
-    }
+
     .main__section3{
-        background: #E8E9ED;
+        background: #FFFFFF;
     }
     @media (max-width: 849px){
         .main{
@@ -70,7 +84,13 @@ class myGrid extends LitElement {
                 </article>
                 <article class="aside__exit"></article>
             </aside>
-            <section class="main__section1"></section>
+            <section class="main__section1">
+                <article class ="section1__title">
+                    <h1>Discover</h1>
+                    <h1>New music</h1>
+                </article>
+                <new-music></new-music> <!--Modulo de nueva musica-->
+            </section>
             <section class="main__section2"></section>
             <section class="main__section3"></section>
         </main>
@@ -78,4 +98,6 @@ class myGrid extends LitElement {
     }
 }
 
-customElements.define("my-grid" , myGrid)
+customElements.define("new-music", newMusic)
+
+
