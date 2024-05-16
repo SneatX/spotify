@@ -1,22 +1,17 @@
 
 import { LitElement, html, css } from "lit"
-import { sortSongsForPopularity, releaseYear} from "../modules/musicData.js"
 
 export class newMusic extends LitElement {
     static properties = {
-        container: { typeof: String },
-        imgSrc: { typeof: String },
-        textSong: { typeof: String },
-        textArtist: { typeof: String },
-        dataMusic: { typeof: Array }
+        imgSrc: { type: String },
+        textSong: { type: String },
+        textArtist: { type: String },
+        dataMusic: { type: Array }
     }
     constructor() {
         super()
-        this.container = "container"
-        this.imgSrc = ""
-        this.textSongClass = "ArtistSong"
-        this.textArtistClass = "ArtistCompositor"
-        this.dataMusic = sortSongsForPopularity()
+        this.sortSongsForPopularity();
+        this.dataMusic = []
     }
     static styles = css`
         * {
@@ -79,20 +74,43 @@ export class newMusic extends LitElement {
             color: #4F4F4F;
         }
         `
+
     render() {
         return html`
         <h2 class="newMusic__title">Top-chart</h2>
-            <div class=${this.container}>
-                ${this.dataMusic.map(musicItem => html`
+            <div class="container">
+                ${this.dataMusic.map(song => html`
                 <div class="boxMusic">
-                    <img src=${musicItem.album.images[1].url} class="boxMusic__img" />
+                    <img src=${song.album.images[1].url} class="boxMusic__img" />
                     <div class="boxMusic__text">
-                        <p class="${this.textSongClass}">${musicItem.name} <br><small class="${this.textArtistClass}">${musicItem.artists[0].name} ${releaseYear(musicItem)}</small></p>
+                        <p>${song.name} <br><small>${song.artists[0].name} ${this.releaseYear(song)}</small></p>
                     </div>
                 </div>
             `)}
             </div>
         `;
+    }
+
+    releaseYear(data) {
+        const releaseDateFull = data.album.release_date;
+        const year = new Date(releaseDateFull).getFullYear();
+        return year;
+    }
+    
+
+    async sortSongsForPopularity() {
+        let config = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'c6fc0ce9e9msh61f2b8fe3fc6c73p1e5464jsne83db7bdc04b',
+                'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
+            }
+        };
+        let res = await fetch("https://spotify23.p.rapidapi.com/recommendations/?limit=20&seed_tracks=0c6xIDDpzE81m2q797ordA&seed_artists=4NHQUGzhtTLFvgF5SZesLK&seed_genres=classical%2Ccountry", config);
+        let data = await res.json()
+        let {tracks} = data
+        tracks.sort((a, b) => b.popularity - a.popularity)
+        this.dataMusic = tracks
     }
 
 }
