@@ -22,12 +22,6 @@ export class myGrid extends LitElement {
     .aside__profile{
         border-bottom: 1px solid gray
     }
-    .aside__buttons{
-        
-    }
-    .aside__exit{
-        
-    }
 
     .main__section1{
         background: #FFFFFF;
@@ -59,18 +53,23 @@ export class myGrid extends LitElement {
             grid-template-columns: 1fr;
             grid-template-rows: 1fr 80px;
         }
-        .aside__profile{
-            display: none
+        .main__aside{
+            order: 2;
+            display: flex;
+            background: #FFFFFF;
         }
-        .aside__exit{
-            display: none
+        .aside__profile,
+        .aside__exit {
+            display: none;
         }
 
-        .main__section1{
-            display: none
+        .main__section1,
+        .main__section3 {
+            display: none;
         }
+
         .main__section2{
-            display: none
+            background: #FAFAFA
         }
     }
     `
