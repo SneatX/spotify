@@ -15,7 +15,7 @@ export class newMusic extends LitElement {
     }
     static styles = css`
         * {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         }
         .container {
             display: flex;
@@ -25,7 +25,6 @@ export class newMusic extends LitElement {
             justify-content: space-around;
             flex-direction: row;
             flex: 1; 
-            gap: 5px;
             width: 25vw;
             height: 25vw;
         }
@@ -36,9 +35,11 @@ export class newMusic extends LitElement {
             display: flex;
             flex-direction: column;
             background: #fff;
-            width: 48%;
+            width: 50%;
             height: 60%;
             cursor: pointer;
+            padding: 5px;
+            box-sizing: border-box;
         }
         .boxMusic__img { 
             display: flex;
@@ -102,7 +103,7 @@ export class newMusic extends LitElement {
         let config = {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': 'c6fc0ce9e9msh61f2b8fe3fc6c73p1e5464jsne83db7bdc04b',
+                'X-RapidAPI-Key': '0bc6b1ceb0mshec90de4eed47d17p12cfd3jsn3dc832f8d8f0',
                 'X-RapidAPI-Host': 'spotify23.p.rapidapi.com'
             }
         };
