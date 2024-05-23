@@ -219,51 +219,62 @@ export class MyReproductor extends LitElement {
     }
 
     @media screen and (max-width: 849px){
-    /*  /PARTE DE CAMBIAR LA CANCION CHANGE_SONG----------------------/*/
-    .container{
-        height: 80vh
-    }
+        /*  /PARTE DE CAMBIAR LA CANCION CHANGE_SONG----------------------/*/
+        .container{
+            height: 80vh
+        }
 
-    .change_song{
-        grid-area: change_song;
-        display:flex;
-        justify-content: space-evenly;
-    }
+        .container__image img{
+            width: 50vw;
+            height: 50vw;
+        }
 
-    .change_song .play{
-        width: 20vw;
-        height: 100%;
-        border: none;
-        cursor: pointer;
-    }
+        .change_song{
+            grid-area: change_song;
+            display:flex;
+            justify-content: space-evenly;
+        }
 
-    .change_song img{
-        width: 6%; /* ajusta el ancho y alto según sea necesario */
-        height: 100%;
-        border: none;
-        cursor: pointer; /* cambia el cursor a una mano para indicar que es clickable */
-    }
+        .change_song .play{
+            width: 20vw;
+            height: 100%;
+            border: none;
+            cursor: pointer;
+        }
 
+        .change_song img{
+            width: 6%; /* ajusta el ancho y alto según sea necesario */
+            height: 100%;
+            border: none;
+            cursor: pointer; /* cambia el cursor a una mano para indicar que es clickable */
+        }
 
         /*DISPOSITIVE--------------------------------------------------*/
-    .dispositive{
-        grid-area: dispositive;
-        display: flex;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
+        .dispositive{
+            grid-area: dispositive;
+            display: flex;
+            align-items: center;
+            align-content: center;
+            justify-content: center;
+        }
+        .info_dispositive {
+            display: flex;
+            align-items: center;
+            background: #1db95434;
+            border-radius: 20px;
+            width: 50%;
+            color: gray;
+            align-content: stretch;
+            justify-content: space-around;
+        }
     }
-    .info_dispositive {
-        display: flex;
-        align-items: center;
-        background: #1db95434;
-        border-radius: 20px;
-        width: 50%;
-        color: gray;
-        align-content: stretch;
-        justify-content: space-around;
+
+    @media screen and (max-width: 500px){
+        .container__image img{
+            width: 80vw;
+            height: 80vw;
+        }
     }
-}
 `
 
     render() {

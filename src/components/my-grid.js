@@ -2,6 +2,7 @@ import { LitElement, html, css } from "lit";
 import { newMusic } from "./my-newMusic";
 import { MyTrackList } from "./my-trackList";
 import { MyReproductor } from "./my-reproductor";
+import { MyLeftBar } from "./my-left-bar";
 
 export class myGrid extends LitElement {
 
@@ -109,6 +110,13 @@ export class myGrid extends LitElement {
         .main__section2{
             background: #FAFAFA
         }
+        .main__aside{
+            display: flex;
+            justify-content: center;
+        }
+        my-left-bar{
+            width: 100%
+        }
     }
     `
 
@@ -116,10 +124,7 @@ export class myGrid extends LitElement {
         return html`
         <main class="main">
             <aside class="main__aside">
-                <article class="aside__profile"></article>
-                <article class="aside__buttons">
-                </article>
-                <article class="aside__exit"></article>
+                <my-left-bar></my-left-bar> <!--Modulo de la barra lateral-->
             </aside>
             <section class="main__section1">
                 <article class ="section1__title">
@@ -154,5 +159,6 @@ export class myGrid extends LitElement {
 customElements.define("new-music", newMusic)
 customElements.define("track-list", MyTrackList)
 customElements.define("my-reproductor", MyReproductor)
+customElements.define("my-left-bar", MyLeftBar)
 
 
