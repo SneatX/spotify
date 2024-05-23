@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { newMusic } from "./my-newMusic";
 import { MyTrackList } from "./my-trackList";
+import { MyReproductor } from "./my-reproductor";
 
 export class myGrid extends LitElement {
 
@@ -131,7 +132,9 @@ export class myGrid extends LitElement {
                     <track-list></track-list><!--Modulo de lista de canciones-->
                 </article>
             </section>
-            <section class="main__section2"></section>
+            <section class="main__section2">
+                <my-reproductor></my-reproductor>
+            </section>
             <section class="main__section3">
                 <article class="trackList">
                     <h1 class="tracklist__title">Track List</h1>
@@ -150,5 +153,6 @@ export class myGrid extends LitElement {
 
 customElements.define("new-music", newMusic)
 customElements.define("track-list", MyTrackList)
+customElements.define("my-reproductor", MyReproductor)
 
 
